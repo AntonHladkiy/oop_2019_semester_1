@@ -5,19 +5,17 @@
 #include "Graph.h"
 #include <vector>
 #include "List.h"
+#include <random>
+#include <ctime>
+#include "Tree.h"
+
+
+
 
 int main()
 {
+	Tree<int> t;
 	Graph<int> graph;
-	graph.add_vertex(1);
-	graph.add_vertex(2);
-	graph.add_vertex(3);
-	graph.add_edge(1, 2);
-	graph.add_edge(1, 0);
-	graph.add_edge(2, 0);
-	graph.print();
-	graph.delete_vertex(0);
-	graph.print();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
