@@ -15,7 +15,16 @@
 int main()
 {
 	Tree<int> t;
-	Graph<int> graph;
+	t.add_node(3);
+	t.print();
+	t.add_node(4);
+	t.add_node(5);
+	t.add_node(6);
+	t.print();
+	t.delete_node(4);
+	t.print();
+	t.delete_node(3);
+	t.print();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
