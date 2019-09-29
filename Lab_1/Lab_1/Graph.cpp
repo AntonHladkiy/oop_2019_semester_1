@@ -28,7 +28,7 @@ void Graph<T>::add_vertex(T data) {
 }
 
 template <typename T>
-void Graph<T>::delete_vertex(int key) {
+void Graph<T>::delete_vertex_by_number(int key) {
 	if (key < edges.size()) {
 		edges[key] = edges[edges.size() - 1];
 		edges[edges.size() - 1] = List();
@@ -39,6 +39,26 @@ void Graph<T>::delete_vertex(int key) {
 		}
 		values[key] = values[values.size() - 1];
 		values.pop_back();
+	}
+}
+
+
+template <typename T>
+int Graph<T>::find_number_by_value(T value) {
+	for (int i = 0; i < values.size(); i++) {
+		if (values[i] == value) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+
+template <typename T>
+void Graph<T>::delete_vertex(T value) {
+	int vertex_number = find_number_by_value(value);
+	if (vertex_number >= 0) {
+		delete_vertex_by_number(vertex_number);
 	}
 }
 

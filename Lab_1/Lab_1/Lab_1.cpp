@@ -15,15 +15,15 @@
 int main()
 {
 	Tree<int> t;
-	t.add_node(3);
+	t.add_vertex(3);
 	t.print();
-	t.add_node(4);
-	t.add_node(5);
-	t.add_node(6);
+	t.add_vertex(4);
+	t.add_vertex(5);
+	t.add_vertex(6);
 	t.print();
-	t.delete_node(4);
+	t.delete_vertex(4);
 	t.print();
-	t.delete_node(3);
+	t.delete_vertex(3);
 	t.print();
 }
 

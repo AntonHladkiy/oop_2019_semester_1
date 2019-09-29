@@ -16,7 +16,7 @@ Tree<T>::Tree() :root(nullptr){
 
 }
 template <typename T>
-void Tree<T>::add_node_recursive(T data, TreeNode<T>* current) {
+void Tree<T>::add_vertex_recursive(T data, TreeNode<T>* current) {
 	if (current) {
 		double random = generate_random();
 		if (random <= 0.5 || current->children.empty()) {
@@ -24,7 +24,7 @@ void Tree<T>::add_node_recursive(T data, TreeNode<T>* current) {
 		}
 		else {
 			double random = generate_random();
-			add_node_recursive(data, current->children[floor(random*current->children.size())]);
+			add_vertex_recursive(data, current->children[floor(random*current->children.size())]);
 		}
 	}
 	else {
@@ -33,8 +33,8 @@ void Tree<T>::add_node_recursive(T data, TreeNode<T>* current) {
 } 
 
 template <typename T>
-void Tree<T>::add_node(T data) {
-	add_node_recursive(data, root);
+void Tree<T>::add_vertex(T data) {
+	add_vertex_recursive(data, root);
 }
 
 
@@ -81,7 +81,7 @@ TreeNode<T>* Tree<T>::find_node_by_value(T data) {
 }
 
 template <typename T>
-void Tree<T>::delete_node(T data) {
+void Tree<T>::delete_vertex(T data) {
 	TreeNode<T>* temp = find_node_by_value(data);
 	if (temp) {
 		if (temp == root) {
