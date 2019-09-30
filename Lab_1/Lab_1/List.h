@@ -2,11 +2,10 @@
 #include <iostream>
 class Node
 {
-private:
+public:
 	int vertex_number;
 	double weight;
 	Node* next;
-public:
 	Node(int, double);
 	Node();
 	friend class List;
@@ -15,12 +14,9 @@ public:
 
 class List
 {
-private:
-	Node* start;
 public:
-	
+	Node* start;
 	List();
-	~List();
 	void add_node(int, double = 1);
 	void delete_node(int, int = -1);
 	void print();

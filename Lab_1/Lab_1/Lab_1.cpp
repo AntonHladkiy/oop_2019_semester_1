@@ -11,26 +11,28 @@
 #include "Dice.h"
 #include "PackofDice.h"
 
-double generate_random_(double second) {
-	static std::random_device rd;
-	std::seed_seq seed{ rd(), static_cast<unsigned int>(time(nullptr)) };
-	static std::mt19937_64 gen(seed);
-	static std::uniform_real_distribution<double> real_dis(0, second);
-	return real_dis(gen);
-}
 
 int main()
 {
-	std::vector<Dice> pack;
-	for (int i = 0; i < 4; i++) {
-		pack.push_back(Dice(i*i+1));
-		pack[i].print();
+	Graph<int> gr;
+	for (int i = 0; i <= 9; i++) {
+		gr.add_vertex(i);
 	}
-	PackofDice pack_1(pack);
-	pack_1.count_chances();
-	pack_1.print_chances();
-
-
+	gr.add_edge(0, 1);
+	gr.add_edge(1, 2);
+	gr.add_edge(1, 3);
+	gr.add_edge(1, 4);
+	gr.add_edge(4, 5);
+	gr.add_edge(3, 5);
+	gr.add_edge(2, 3);
+	gr.add_edge(2, 6);
+	gr.add_edge(6, 7);
+	gr.add_edge(7, 8);
+	gr.add_edge(8, 9);
+	gr.add_edge(9, 7);
+	Tree<int> tree;
+	tree = gr.spanning_tree();
+	tree.print();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
