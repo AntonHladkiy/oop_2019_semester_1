@@ -151,18 +151,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Dice.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="PackofDice.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="TreeNode.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Lab_1.cpp" />
     <ClCompile Include="List.cpp" />
+    <ClCompile Include="PackofDice.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

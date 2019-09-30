@@ -8,23 +8,29 @@
 #include <random>
 #include <ctime>
 #include "Tree.h"
+#include "Dice.h"
+#include "PackofDice.h"
 
-
-
+double generate_random_(double second) {
+	static std::random_device rd;
+	std::seed_seq seed{ rd(), static_cast<unsigned int>(time(nullptr)) };
+	static std::mt19937_64 gen(seed);
+	static std::uniform_real_distribution<double> real_dis(0, second);
+	return real_dis(gen);
+}
 
 int main()
 {
-	Tree<int> t;
-	t.add_vertex(3);
-	t.print();
-	t.add_vertex(4);
-	t.add_vertex(5);
-	t.add_vertex(6);
-	t.print();
-	t.delete_vertex(4);
-	t.print();
-	t.delete_vertex(3);
-	t.print();
+	std::vector<Dice> pack;
+	for (int i = 0; i < 4; i++) {
+		pack.push_back(Dice(i*i+1));
+		pack[i].print();
+	}
+	PackofDice pack_1(pack);
+	pack_1.count_chances();
+	pack_1.print_chances();
+
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
