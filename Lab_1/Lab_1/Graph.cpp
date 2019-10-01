@@ -96,7 +96,58 @@ std::vector<Tree<T>> Graph<T>::spanning_tree() {
 	return forest;
 }
 
+template <typename T>
+void Graph<T>::Prim_algorithm(Tree<T>& result) {
+	result.add_after_node(values[0], nullptr, 0, 0);
+	std::vector<int> cheapest_connection;
+	std::vector<int> visit_status;
+	std::vector<double> cheapest_cost;
+	cheapest_connection.resize(values.size());
+	visit_status.resize(values.size());
+	cheapest_cost.resize(values.size());
+	for (int i = 0; i < values.size(); i++) {
+		cheapest_connection[i] = -1;
+		cheapest_cost[i] = INT_MAX;
+		visit_status[i] = i;
+	}
+	while (!visit_status.empty()) {
+		int k = 0;
+		int minimum = visit_status[k];
+		for (int i = 0; i < visit_status.size(); i++) {
+			if (cheapest_cost[visit_status[i]] < cheapest_cost[minimum]) {
+				minimum = visit_status[i];
+				k = i;
+			}
+		}
 
+		if (cheapest_connection[minimum] != -1) {
+			Node* temp = edges[cheapest_connection[minimum]].start;
+			double value = 0;
+			while (temp) {
+				if (temp->vertex_number == minimum) {
+					value = temp->weight;
+					break;
+				}
+				temp = temp->next;
+			}
+			result.add_after_node(values[minimum], result.find_node_by_value(values[cheapest_connection[minimum]]), value, minimum);
+		}
+
+		Node* temp = edges[minimum].start;
+		while (temp) {
+			for (int i = 0; i < visit_status.size(); i++) {
+				if (temp->vertex_number == visit_status[i]) {
+					if (temp->weight < cheapest_cost[visit_status[i]]) {
+						cheapest_cost[visit_status[i]] = temp->weight;
+						cheapest_connection[visit_status[i]] = minimum;
+					}
+				}
+			}
+			temp = temp->next;
+		}
+		visit_status.erase(visit_status.begin() + k);
+	}
+}
 template <typename T>
 void Graph<T>::print() {
 	for (int i = 0; i < edges.size(); i++) {

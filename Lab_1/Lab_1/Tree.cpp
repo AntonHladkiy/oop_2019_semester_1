@@ -38,7 +38,7 @@ void Tree<T>::add_after_node(T data, TreeNode<T>* parent,double weight,int verte
 	else {
 		root = new TreeNode<T>(data, parent, vertex_count);
 	}
-	vertex_count++;
+	this->vertex_count++;
 }
 
 
@@ -175,6 +175,28 @@ void Tree<T>::print_recursive(TreeNode<T>* current,int counter) {
 	else {
 		std::cout << "Tree is empty" << std::endl;
 	}
+}
+
+
+template <typename T>
+double Tree<T>::count_weight_recursive(TreeNode<T>* current) {
+	double result = 0;
+	if (current) {
+		if (current->children.empty()) {
+		}
+		else {
+			for (int i = 0; i < current->children.size(); i++) {
+				result += current->children[i].second;
+				result+=count_weight_recursive(current->children[i].first);
+			}
+		}
+	}
+	return result;
+}
+
+template <typename T>
+double Tree<T>::count_weight() {
+	return count_weight_recursive(root);
 }
 
 

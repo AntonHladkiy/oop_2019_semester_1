@@ -18,7 +18,7 @@ private:
 	TreeNode<T>* find_node_by_value_recursive(T, TreeNode<T>*);
 	TreeNode<T>* find_node_by_number_recursive(int, TreeNode<T>*);
 	void print_recursive(TreeNode<T>*,int);
-	
+	double count_weight_recursive(TreeNode<T>*);
 public:
 	int vertex_count;
 	TreeNode<T>* root;
@@ -29,6 +29,7 @@ public:
 	void delete_vertex(T) override;
 	TreeNode<T>* find_node_by_value(T);
 	TreeNode<T>* find_node_by_number(int);
+	double count_weight();
 	void print() override;
 };
 

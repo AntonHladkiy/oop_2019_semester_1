@@ -23,5 +23,6 @@ public:
 	void delete_vertex_by_number(int);
 	void delete_vertex(T) override;
 	void print() override;
+	void Prim_algorithm(Tree<T>&);
 	std::vector<Tree<T>> spanning_tree();
 };
