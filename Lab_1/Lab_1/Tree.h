@@ -6,6 +6,9 @@
 #include <vector>
 #include <iostream>
 #include "Interface.h"
+#include "PackofDice.h"
+#include <string>
+#include "Operator.h"
 
 template <typename T>
 class Tree:public Interface<T>

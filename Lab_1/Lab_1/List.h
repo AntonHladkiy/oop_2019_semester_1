@@ -20,5 +20,6 @@ public:
 	~List();
 	void add_node(int, double = 1);
 	void delete_node(int, int = -1);
+	int count_nodes_number();
 	void print();
 };

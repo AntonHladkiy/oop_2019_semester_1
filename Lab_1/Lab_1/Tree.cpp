@@ -2,14 +2,6 @@
 #include "Tree.h"
 
 
-double generate_random() {
-	static std::random_device rd;
-	std::seed_seq seed{ rd(), static_cast<unsigned int>(time(nullptr)) };
-	static std::mt19937_64 gen(seed);
-	static std::uniform_real_distribution<> real_dis;
-	return real_dis(gen);
-}
-
 
 template <typename T>
 Tree<T>::Tree() :root(nullptr),vertex_count(0){
@@ -192,4 +184,10 @@ void Tree<T>::print() {
 }
 
 
+
 template class Tree<int>;
+template class Tree<double>;
+template class Tree<std::string>;
+template class Tree<std::vector<int>>;
+template class Tree<Dice>;
+template class Tree<PackofDice>;

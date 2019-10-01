@@ -29,6 +29,31 @@ Dice::Dice(std::vector<double> _chances) :edges_count(_chances.size()),chances(_
 Dice::Dice()
 {}
 
+std::ostream& operator<<(std::ostream& out,const Dice& dice) {
+	out << "{ ";
+	for (int i = 0; i < dice.chances.size()-1; i++) {
+		out << dice.chances[i] << ", ";
+	}
+	out << dice.chances[dice.chances.size() - 1] << " }";
+	return out;
+}
+
+
+bool Dice::operator==(const Dice& dice) {
+	if (chances.size() == dice.chances.size()) {
+		for (int i = 0; i < chances.size(); i++) {
+			if (chances[i] != dice.chances[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
 void Dice::print() {
 	if (!chances.empty()) {
 		std::cout << "{ ";

@@ -2,6 +2,9 @@
 #include "PackofDice.h"
 
 
+PackofDice::PackofDice()
+{
+}
 PackofDice::PackofDice(std::vector<Dice> _pack):pack(_pack)
 {
 }
@@ -39,6 +42,16 @@ double PackofDice::count_expected_value() {
 		expected_value += chances[i] * (i + 1);
 	}
 	return expected_value;
+}
+
+std::ostream& operator<<(std::ostream& out,PackofDice& pack) {
+	out << "{ ";
+	for (int i = 0; i < pack.chances.size() - 1; i++) {
+		out << pack.chances[i] << ", ";
+	}
+	out << pack.chances[pack.chances.size() - 1] << " }";
+	out << ", [" << pack.count_expected_value() << "]";
+	return out;
 }
 
 bool PackofDice::operator<(PackofDice pack) {

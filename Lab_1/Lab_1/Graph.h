@@ -4,15 +4,18 @@
 #include "List.h"
 #include "Interface.h"
 #include "Tree.h"
+#include "PackofDice.h"
+#include "Operator.h"
+#include <string>
 template <typename T>
 class Graph: public Interface<T>
 {
 private:
-	std::vector<List> edges;
-	std::vector<T> values;
 	int find_number_by_value(T);
 	void spanning_tree_recursive(std::vector<bool>&, int,Tree<T>&);
 public:
+	std::vector<T> values;
+	std::vector<List> edges;
 	Graph();
 	void add_edge(int, int, double = 1) ;
 	void delete_edge(int, int);

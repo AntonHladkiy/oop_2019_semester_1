@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Graph.h"
 
-
 template<typename T>
 Graph<T>::Graph() {
 }
@@ -107,3 +106,9 @@ void Graph<T>::print() {
 
 
 template class Graph<int>;
+template class Graph<double>;
+template class Graph<double>;
+template class Graph<std::string>;
+template class Graph<std::vector<int>>;
+template class Graph<Dice>;
+template class Graph<PackofDice>;

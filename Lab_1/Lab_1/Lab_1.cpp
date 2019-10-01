@@ -1,6 +1,8 @@
 ﻿// Lab_1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 #include "pch.h"
+#define CATCH_CONFIG_MAIN 
+#include "catch.hpp"
 #include <iostream>
 #include "Graph.h"
 #include <vector>
@@ -12,9 +14,9 @@
 #include "PackofDice.h"
 
 
-int main()
-{
-	Graph<int> gr;
+//int main()
+//{
+	/*Graph<int> gr;
 	for (int i = 0; i <= 11; i++) {
 		gr.add_vertex(i);
 	}
@@ -36,8 +38,8 @@ int main()
 	tree=gr.spanning_tree()[0];
 	tree_2 = gr.spanning_tree()[1];
 	tree.print();
-	tree_2.print();
-}
+	tree_2.print();*/
+//}
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

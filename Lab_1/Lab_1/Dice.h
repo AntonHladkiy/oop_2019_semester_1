@@ -13,6 +13,8 @@ public:
 	Dice();
 	Dice(int);
 	Dice(std::vector<double>);
+	friend std::ostream& operator<< (std::ostream&,const Dice&);
+	bool operator== (const Dice&);
 	void print();
 };
 

@@ -60,6 +60,18 @@ void List::delete_node(int key, int key_to_swap_with) {
 	}
 }
 
+
+int List::count_nodes_number() {
+	Node* temp = start;
+	int n = 0;
+	while (temp) {
+		n++;
+		temp = temp->next;
+	}
+	return n;
+}
+
+
 void List::print() {
 	if (start) {
 		Node* temp = start;
