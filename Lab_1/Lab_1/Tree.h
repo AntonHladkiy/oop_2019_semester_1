@@ -21,7 +21,7 @@ public:
 	TreeNode<T>* root;
 	Tree();
 	void add_vertex(T) override;
-	void add_after_node(T, TreeNode<T>*,double, int = vertex_count);
+	void add_after_node(T, TreeNode<T>*,double, int);
 	void add_node_after_node(TreeNode<T>*, TreeNode<T>*,double);
 	void delete_vertex(T) override;
 	TreeNode<T>* find_node_by_value(T);

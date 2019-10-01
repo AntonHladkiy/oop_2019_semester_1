@@ -15,11 +15,11 @@
 int main()
 {
 	Graph<int> gr;
-	for (int i = 0; i <= 9; i++) {
+	for (int i = 0; i <= 11; i++) {
 		gr.add_vertex(i);
 	}
-	gr.add_edge(0, 1);
-	gr.add_edge(1, 2);
+	gr.add_edge(0, 1,5);
+	gr.add_edge(1, 2,6);
 	gr.add_edge(1, 3);
 	gr.add_edge(1, 4);
 	gr.add_edge(4, 5);
@@ -30,9 +30,13 @@ int main()
 	gr.add_edge(7, 8);
 	gr.add_edge(8, 9);
 	gr.add_edge(9, 7);
+	gr.add_edge(10, 11);
 	Tree<int> tree;
-	tree = gr.spanning_tree();
+	Tree<int> tree_2;
+	tree=gr.spanning_tree()[0];
+	tree_2 = gr.spanning_tree()[1];
 	tree.print();
+	tree_2.print();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

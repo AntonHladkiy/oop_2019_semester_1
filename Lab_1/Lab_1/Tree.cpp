@@ -40,7 +40,12 @@ void Tree<T>::add_vertex(T data) {
 
 template <typename T>
 void Tree<T>::add_after_node(T data, TreeNode<T>* parent,double weight,int vertex_count) {
-	parent->children.push_back(std::pair<TreeNode<T>*, double>(new TreeNode<T>(data, parent, vertex_count),weight));
+	if (parent) {
+		parent->children.push_back(std::pair<TreeNode<T>*, double>(new TreeNode<T>(data, parent, vertex_count), weight));
+	}
+	else {
+		root = new TreeNode<T>(data, parent, vertex_count);
+	}
 	vertex_count++;
 }
 

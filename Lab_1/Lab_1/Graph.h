@@ -20,5 +20,5 @@ public:
 	void delete_vertex_by_number(int);
 	void delete_vertex(T) override;
 	void print() override;
-	Tree<T> spanning_tree();
+	std::vector<Tree<T>> spanning_tree();
 };
