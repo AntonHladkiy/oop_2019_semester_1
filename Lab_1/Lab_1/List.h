@@ -17,6 +17,7 @@ class List
 public:
 	Node* start;
 	List();
+	~List();
 	void add_node(int, double = 1);
 	void delete_node(int, int = -1);
 	void print();

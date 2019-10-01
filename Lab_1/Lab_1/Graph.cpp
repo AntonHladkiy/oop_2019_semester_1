@@ -65,15 +65,12 @@ void Graph<T>::delete_vertex(T value) {
 template <typename T>
 void Graph<T>::spanning_tree_recursive(std::vector<bool>& checked, int vertex_number,Tree<T>& result) {
 	checked[vertex_number] = true;
-	List list = edges[vertex_number];
-	Node* temp = list.start;
+	Node* temp = edges[vertex_number].start;
 	while (temp) {
+		std::cout << checked[temp->vertex_number] << std::endl;
 		if (!checked[temp->vertex_number]) {
 			result.add_after_node(values[temp->vertex_number], result.find_node_by_number(vertex_number),temp->weight,temp->vertex_number);
 			spanning_tree_recursive(checked, temp->vertex_number, result);
-			if (vertex_number == 10) {
-
-			}
 		}
 		temp = temp->next;
 	}
@@ -88,9 +85,7 @@ std::vector<Tree<T>> Graph<T>::spanning_tree() {
 	}
 	std::vector<Tree<T>> forest;
 	for (int i = 0; i < checked.size(); i++) {
-		
 		if (!checked[i]) {
-			
 			Tree<T> result;
 			if (!values.empty()) {
 				result.add_after_node(values[i],nullptr,1,i);

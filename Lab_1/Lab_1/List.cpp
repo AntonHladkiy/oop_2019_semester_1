@@ -9,6 +9,14 @@ Node::Node(int _vertex_number, double _weight) : vertex_number(_vertex_number), 
 List::List() : start(nullptr) {
 
 }
+List::~List() {
+	Node* temp = start;
+	while (temp) {
+		Node* to_delete = temp;
+		temp = temp->next;
+		delete to_delete;
+	}
+}
 void List::add_node(int key, double weight) {
 	if (!start) {
 		start = new Node(key, weight);

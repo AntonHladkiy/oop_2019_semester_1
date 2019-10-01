@@ -141,6 +141,7 @@ void Tree<T>::delete_vertex(T data) {
 					vertex_count--;
 					add_node_after_node(temp->children[i].first, root, temp->children[i].second);
 				}
+				vertex_count--;
 				delete temp;
 			}
 		}
@@ -157,6 +158,7 @@ void Tree<T>::delete_vertex(T data) {
 				}
 			}
 			delete temp;
+			vertex_count--;
 		}
 	}
 }
