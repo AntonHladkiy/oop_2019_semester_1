@@ -67,7 +67,6 @@ void Graph<T>::spanning_tree_recursive(std::vector<bool>& checked, int vertex_nu
 	checked[vertex_number] = true;
 	Node* temp = edges[vertex_number].start;
 	while (temp) {
-		std::cout << checked[temp->vertex_number] << std::endl;
 		if (!checked[temp->vertex_number]) {
 			result.add_after_node(values[temp->vertex_number], result.find_node_by_number(vertex_number),temp->weight,temp->vertex_number);
 			spanning_tree_recursive(checked, temp->vertex_number, result);
