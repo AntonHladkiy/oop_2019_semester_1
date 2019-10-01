@@ -16,15 +16,15 @@ Tree<T>::Tree() :root(nullptr),vertex_count(0){
 
 }
 template <typename T>
-void Tree<T>::add_vertex_recursive(T data, TreeNode<T>* current,int vertex_count) {
+void Tree<T>::add_vertex_recursive(T data, TreeNode<T>* current,int vertex_count,double weight) {
 	if (current) {
 		double random = generate_random();
 		if (random <= 0.5 || current->children.empty()) {
-			current->children.push_back(new TreeNode<T>(data,current,vertex_count));
+			current->children.push_back(std::pair<TreeNode<T>*,double>(new TreeNode<T>(data,current,vertex_count),weight));
 		}
 		else {
 			double random = generate_random();
-			add_vertex_recursive(data, current->children[floor(random*current->children.size())],vertex_count);
+			add_vertex_recursive(data, current->children[floor(random*current->children.size())].first,vertex_count);
 		}
 	}
 	else {
@@ -39,16 +39,16 @@ void Tree<T>::add_vertex(T data) {
 }
 
 template <typename T>
-void Tree<T>::add_after_node(T data, TreeNode<T>* parent,int vertex_count) {
-	parent->children.push_back(new TreeNode<T>(data, parent, vertex_count));
+void Tree<T>::add_after_node(T data, TreeNode<T>* parent,double weight,int vertex_count) {
+	parent->children.push_back(std::pair<TreeNode<T>*, double>(new TreeNode<T>(data, parent, vertex_count),weight));
 	vertex_count++;
 }
 
 
 template <typename T>
-void Tree<T>::add_node_after_node(TreeNode<T>* current, TreeNode<T>* parent) {
+void Tree<T>::add_node_after_node(TreeNode<T>* current, TreeNode<T>* parent,double weight) {
 	current->parent = parent;
-	parent->children.push_back(current);
+	parent->children.push_back(std::pair<TreeNode<T>*, double>(current,weight));
 	vertex_count++;
 }
 
@@ -64,7 +64,7 @@ TreeNode<T>* Tree<T>::find_node_by_value_recursive(T data,TreeNode<T>* current) 
 			}
 			else {
 				for (int i = 0; i < current->children.size(); i++) {
-					TreeNode<T>* temp = find_node_by_value_recursive(data, current->children[i]);
+					TreeNode<T>* temp = find_node_by_value_recursive(data, current->children[i].first);
 					if (temp) {
 						return temp;
 					}
@@ -97,7 +97,7 @@ TreeNode<T>* Tree<T>::find_node_by_number_recursive(int vertex_number, TreeNode<
 			}
 			else {
 				for (int i = 0; i < current->children.size(); i++) {
-					TreeNode<T>* temp = find_node_by_number_recursive(vertex_number, current->children[i]);
+					TreeNode<T>* temp = find_node_by_number_recursive(vertex_number, current->children[i].first);
 					if (temp) {
 						return temp;
 					}
@@ -129,12 +129,12 @@ void Tree<T>::delete_vertex(T data) {
 			}
 			else {
 				double random = generate_random();
-				root = temp->children[floor(temp->children.size()*random)];
+				root = temp->children[floor(temp->children.size()*random)].first;
 				root->parent = nullptr;
 				temp->children.erase(temp->children.begin()+floor(temp->children.size()*random));
 				for (int i = 0; i < temp->children.size(); i++) {
 					vertex_count--;
-					add_node_after_node(temp->children[i], root);
+					add_node_after_node(temp->children[i].first, root, temp->children[i].second);
 				}
 				delete temp;
 			}
@@ -143,11 +143,11 @@ void Tree<T>::delete_vertex(T data) {
 			if (!temp->children.empty()) {
 				for (int i = 0; i < temp->children.size(); i++) {
 					vertex_count--;
-					add_node_after_node(temp->children[i], temp->parent);
+					add_node_after_node(temp->children[i].first, temp->parent, temp->children[i].second);
 				}
 			}
 			for (int i = 0; i < temp->parent->children.size(); i++) {
-				if (temp->parent->children[i]->data == data) {
+				if (temp->parent->children[i].first->data == data) {
 					temp->parent->children.erase(temp->parent->children.begin() + i);
 				}
 			}
@@ -169,7 +169,7 @@ void Tree<T>::print_recursive(TreeNode<T>* current,int counter) {
 		}
 		else {
 			for (int i = 0; i < current->children.size(); i++) {
-				print_recursive(current->children[i],counter+1);
+				print_recursive(current->children[i].first,counter+1);
 			}
 		}
 	}
