@@ -17,7 +17,7 @@ public:
 	//am i won
 	bool am_i_won(Game &game, bool am_i_first_pl);
 	//making your field
-	void make_field(Game &game, sf::RenderWindow &window);
+	void make_field(Game &game, sf::RenderWindow &window,bool& restart);
 	Player(bool _am_i_first_palyer);
 	~Player();
 };

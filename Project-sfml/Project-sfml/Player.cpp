@@ -16,6 +16,7 @@ bool Player::make_turn(Game & game, sf::Vector2f pos)
 			//am i won
 			if (am_i_won(game, am_i_first_pl)) {
 				game._playing = false;
+				game._first_pl_won = true;
 			}
 			return false;
 		}
@@ -25,6 +26,7 @@ bool Player::make_turn(Game & game, sf::Vector2f pos)
 			//am i won
 			if (am_i_won(game, am_i_first_pl)) {
 				game._playing = false;
+				game._first_pl_won = false;
 			}
 			return false;
 		}
@@ -54,7 +56,7 @@ bool Player::am_i_won(Game & game, bool am_i_first_pl)
 	return res;
 }
 
-void Player::make_field(Game & game, sf::RenderWindow & window)
+void Player::make_field(Game & game, sf::RenderWindow & window,bool & restart)
 {
 	std::vector<int> ships_count = { 4, 3, 2, 1 };
 	std::pair<int, int> pair;
@@ -85,8 +87,10 @@ void Player::make_field(Game & game, sf::RenderWindow & window)
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
+			if (event.type == sf::Event::Closed) {
 				window.close();
+				restart = false;
+			}
 			if (event.type == sf::Event::MouseButtonPressed) {
 				if (event.key.code == sf::Mouse::Left) {
 					helper = game.param_of_new_ship(window, pos, _field, rotated, is_ship_from_field,ships_count);

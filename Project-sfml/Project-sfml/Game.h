@@ -18,6 +18,8 @@ public:
 	bool is_pl_1_turn();
 	Game();
 	bool are_we_still_playing();
+	//who won th game?
+	bool did_first_win();
 private:
 	//calculating size and index of pointed part
 	std::pair<int, int> calc_ship_coord(size_t x, size_t y, size_t prev_x, size_t prev_y, cell** field);
@@ -47,6 +49,8 @@ private:
 	std::vector<int> pl_2_ships;
 	//will it be first player turn now
 	bool _first_pl_turn;
+	//did first player win
+	bool _first_pl_won;
 	//sfml stuff
 	sf::Texture _texture;
 	sf::Sprite _sprite;

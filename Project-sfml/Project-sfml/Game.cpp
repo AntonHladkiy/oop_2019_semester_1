@@ -94,6 +94,11 @@ bool Game::are_we_still_playing()
 	return _playing;
 }
 
+bool Game::did_first_win()
+{
+	return _first_pl_won;
+}
+
 std::pair<int, int> Game::calc_ship_coord(size_t x, size_t y, size_t prev_x, size_t prev_y, cell ** field)
 {
 	field[x][y] = cell::empty;
