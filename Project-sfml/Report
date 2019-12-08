@@ -1,4 +1,4 @@
-# Lab 3 report
+Lab_3_report
 In my program i used SFML to create simple application interface.
 SFML handles creating and input to windows, and creating and managing OpenGL contexts.
 My plan for this library was to create simple user interface to provide interaction of user actions and interface.
