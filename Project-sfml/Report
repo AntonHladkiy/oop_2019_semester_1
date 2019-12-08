@@ -1,0 +1,18 @@
+# Lab 3 report
+In my program i used SFML to create simple application interface.
+SFML handles creating and input to windows, and creating and managing OpenGL contexts.
+My plan for this library was to create simple user interface to provide interaction of user actions and interface.
+Specifically create well known game called Sea Battle.
+I choose this library because some of my friends had experience of using it and recomended to me for my plans and all other alternatives like QT,Freeglut etc. 
+were not looking so simple and understandable to use.
+You can esay download this library from official website(https://www.sfml-dev.org/) and customize it using guide from this website.
+Documentation of library provides usefull description of every methods and classes, when i was using it i don't need to look somewhere else very often.
+Documentation link(https://www.sfml-dev.org/documentation/2.5.1/)
+Names of methods and classe are intuitively understandable, even for me while using this library for the first time.
+There are quite a lot of extra code because all algorithmic and other methods i implemented by myself not using this library.
+I understood clearly how my code works with library methods and how they work with themselfs. That simplify what i need to do a lot.
+Actually one of the main problem was not really connected with library, that was finding proper textures for sprites in program.
+So I have spent a lot of time finding them and then correcting them.
+In general SFML left positive feelings after using it, main reason is lack of infinite amount of issues.
+If i will need to write similar programs in future, i will more likely use SfML then won't. As for way of using library
+for now i don't see library features that i could use to simplify my work, or just upgrade code.
