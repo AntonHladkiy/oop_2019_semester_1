@@ -2,18 +2,20 @@
 #include <iostream>
 #include "Game.h"
 #include "Player.h"
+#include "Bot.h"
+#include "Participant.h"
 
 int main()
 {
 	bool restart = true;
 	while (restart) {
 		Game game;
-		Player pl_1(true);
-		Player pl_2(false);
+		Participant* pl_1 = new Player(true);
+		Participant* pl_2 = new Bot(false);
 		Interface interface;
 		sf::RenderWindow window(sf::VideoMode(1440, 800), "Sea Battle");
-		pl_1.make_field(game, window,restart);
-		pl_2.make_field(game, window,restart);
+		pl_1->make_field(game, window,restart);
+		pl_2->make_field(game, window,restart);
 		sf::View view = window.getDefaultView();
 		window.setView(view);
 		while (window.isOpen())
@@ -21,7 +23,12 @@ int main()
 			sf::Vector2i pixelPos = sf::Mouse::getPosition(window); //coord of mouse (in px)
 			sf::Vector2f pos = window.mapPixelToCoords(pixelPos); //coord of mous (transform)
 			sf::Event event;
-
+			if (game.is_pl_1_turn()&&pl_1->is_bot()) {
+				pl_1->make_turn(game, pos);
+			}
+			if (!game.is_pl_1_turn() && pl_2->is_bot()) {
+				pl_2->make_turn(game, pos);
+			}
 			while (window.pollEvent(event))
 			{
 				if (event.type == sf::Event::Closed) {
@@ -31,22 +38,19 @@ int main()
 				if (event.type == sf::Event::MouseButtonPressed)
 					if (event.key.code == sf::Mouse::Left)
 					{
-						if (game.is_pl_1_turn())
+						if (game.is_pl_1_turn()&& !pl_1->is_bot())
 						{
-							//std::cout << "Player 1's turn" << std::endl;
-							//interface.print_message("Player's 1 turn", sf::Vector2f(600, 50), window);
-							pl_1.make_turn(game, pos);
+							pl_1->make_turn(game, pos);
 						}
 						else {
-							//interface.print_message("Player's 2 turn", sf::Vector2f(600, 50), window);
-							//std::cout << "Player 2's turn" << std::endl;
-							pl_2.make_turn(game, pos);
+							if(!pl_2->is_bot())
+							pl_2->make_turn(game, pos);
 						}
 					}
 			}
 			window.clear();
 			if (game.are_we_still_playing()) {
-				game.draw(window);
+				game.draw(window,pl_1,pl_2);
 			}
 			else {
 				//window.setSize(sf::Vector2u(100, 100));

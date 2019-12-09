@@ -5,20 +5,7 @@
 //size of cell in pxls
 #define CELL_SIZE 160
 
-void Game::draw(sf::RenderWindow & window)
-{
-	Interface interface;
-	interface.print_message("Your field", sf::Vector2f(150, 100), window);
-	interface.print_message("Enemy field", sf::Vector2f(150+ CELL_SIZE * x_scale*board_size+CELL_SIZE, 100), window);
-	if (_first_pl_turn) {
-		interface.print_message("Player's 1 turn", sf::Vector2f(600, 50), window);
-		draw_pl_field(window, pl_1_field, pl_2_field);
-	}
-	else {
-		interface.print_message("Player's 2 turn", sf::Vector2f(600, 50), window);
-		draw_pl_field(window, pl_2_field, pl_1_field);
-	}
-}
+
 
 void Game::draw_starting_screen(sf::RenderWindow & window,std::vector<int> &ships_count,cell** _field)
 {

@@ -4,15 +4,25 @@
 //size of cell in pxls
 #define CELL_SIZE 160
 
+bool Player::is_bot()
+{
+	return false;
+}
+
+Player::Player()
+{
+}
+
 bool Player::make_turn(Game & game, sf::Vector2f pos)
 {
+	bool temp;
 	//check that we are on the field
 	if (pos.x < CELL_SIZE * game.x_scale * game.board_size+CELL_SIZE || pos.y < CELL_SIZE || pos.x >  CELL_SIZE * game.x_scale * game.board_size + CELL_SIZE+CELL_SIZE * game.x_scale * game.board_size || pos.y > CELL_SIZE+CELL_SIZE * game.y_scale * game.board_size ) return false;
 	//transform to index
 	size_t x = (pos.x - CELL_SIZE * game.x_scale * (game.board_size) - CELL_SIZE) / (CELL_SIZE * game.x_scale), y = (pos.y- CELL_SIZE) / (CELL_SIZE * game.y_scale);
 	//check for empty cell
 	if (am_i_first_pl) {
-		if (!check_cell(game, x, y, game.pl_2_field)) {
+		if (!check_cell(game, x, y, game.pl_2_field,temp)) {
 			//am i won
 			if (am_i_won(game, am_i_first_pl)) {
 				game._playing = false;
@@ -22,7 +32,7 @@ bool Player::make_turn(Game & game, sf::Vector2f pos)
 		}
 	}
 	else {
-		if (!check_cell(game, x, y, game.pl_1_field)) {
+		if (!check_cell(game, x, y, game.pl_1_field,temp)) {
 			//am i won
 			if (am_i_won(game, am_i_first_pl)) {
 				game._playing = false;
@@ -36,25 +46,7 @@ bool Player::make_turn(Game & game, sf::Vector2f pos)
 	return true;
 }
 
-bool Player::am_i_won(Game & game, bool am_i_first_pl)
-{
-	bool res = true;
-	if (am_i_first_pl) {
-		for (auto i = 0; i < game.pl_2_ships.size(); i++) {
-			if (game.pl_2_ships[i] != 0) {
-				res = false;
-			}
-		}
-	}
-	else {
-		for (auto i = 0; i < game.pl_1_ships.size(); i++) {
-			if (game.pl_1_ships[i] != 0) {
-				res = false;
-			}
-		}
-	}
-	return res;
-}
+
 
 void Player::make_field(Game & game, sf::RenderWindow & window,bool & restart)
 {
@@ -171,41 +163,13 @@ void Player::make_field(Game & game, sf::RenderWindow & window,bool & restart)
 	}
 }
 
-Player::Player(bool _am_i_first_palyer)
+Player::Player(bool _am_i_first_palyer):Participant(_am_i_first_palyer)
 {
-	am_i_first_pl = _am_i_first_palyer;
+
 }
 
-bool Player::check_cell(Game &game, size_t x, size_t y, cell ** enemy_field)
-{
-	if (enemy_field[x][y] == cell::miss) return false;
-	if (enemy_field[x][y] == cell::destroyed_ship) return false;
-	if (enemy_field[x][y] == cell::ship) {
-		enemy_field[x][y] = cell::empty;
-		size_t size_of_ship = 0;
-		if (game.check_for_destruction(x, y, enemy_field,-1,-1,size_of_ship)) {
-			game.fill_cells(x, y, enemy_field, -1, -1);
-			if (am_i_first_pl) {
-				//std::cout << game.pl_2_ships[size_of_ship - 1] << std::endl;
-				game.pl_2_ships[size_of_ship - 1]--;
-			}
-			else {
-				game.pl_1_ships[size_of_ship - 1]--;
-			}
-		}
-		enemy_field[x][y] = cell::destroyed_ship;
-		return false;
-	}
-	if (enemy_field[x][y] == cell::empty) {
-		enemy_field[x][y] = cell::miss;
-		return true;
-	}
-	
-}
 
-Player::Player()
-{
-}
+
 
 
 Player::~Player()

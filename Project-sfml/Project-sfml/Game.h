@@ -5,12 +5,15 @@
 enum class cell {
 	empty, ship, miss, destroyed_ship
 };
+class Participant;
 class Game
 {
 public:
 	friend class Player;
+	friend class Participant;
+	friend class Bot;
 	//draw with sfml
-	void draw(sf::RenderWindow &window);
+	void draw(sf::RenderWindow &window, Participant* p_1, Participant* p_2);
 	void draw_starting_screen(sf::RenderWindow &window, std::vector<int> &ships_count,cell** _field);
 	//reset game
 	//void reset();
