@@ -11,4 +11,4 @@ With standart rules: every player have 4 ships with 1 deck , 3 with 2,2 with 3 a
 You can palce ships by just taking them from special place on screen or field and hovering over needed part of field.
 Win player who first get out all of enemy ships.
 # ToDo
-Add menu ,add option to play against AI.
+Upgrade menu, upgrade AI algorithm to increase average result.
