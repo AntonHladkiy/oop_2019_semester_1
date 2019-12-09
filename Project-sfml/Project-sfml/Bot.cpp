@@ -1,6 +1,13 @@
 #include "Bot.h"
 
-
+#define CELL_SIZE 160
+double Bot::generate_random(double second) {
+	static std::random_device rd;
+	std::seed_seq seed{ rd(), static_cast<unsigned int>(time(nullptr)) };
+	static std::mt19937_64 gen(seed);
+	std::uniform_real_distribution<double> real_dis(0, second);
+	return real_dis(gen);
+}
 
 std::pair<int, int> Bot::find_next_coord_for_attack(Game & game, cell ** enemy_field, const std::vector<int>& enemy_ships)
 {
@@ -220,42 +227,60 @@ bool Bot::make_turn(Game & game, sf::Vector2f pos)
 void Bot::make_field(Game & game, sf::RenderWindow & window, bool & restart)
 {
 	cell** my_field;
+	sf::Vector2f pos;
+	bool rotated;
 	if (am_i_first_pl) {
 		my_field = game.pl_1_field;
 	}
 	else {
 		my_field = game.pl_2_field;
 	}
-	my_field[0][1] = cell::ship;
-	my_field[0][2] = cell::ship;
-	my_field[0][3] = cell::ship;
-	my_field[0][4] = cell::ship;
-
-
-	my_field[0][6] = cell::ship;
-	my_field[0][7] = cell::ship;
-	my_field[0][8] = cell::ship;
-
-	my_field[9][1] = cell::ship;
-	my_field[9][2] = cell::ship;
-	my_field[9][3] = cell::ship;
-
-	my_field[9][5] = cell::ship;
-	my_field[9][6] = cell::ship;
-
-	my_field[9][8] = cell::ship;
-	my_field[9][9] = cell::ship;
-
-	my_field[2][0] = cell::ship;
-	my_field[3][0] = cell::ship;
-
-	my_field[5][6] = cell::ship;
-
-	my_field[7][8] = cell::ship;
-
-	my_field[4][3] = cell::ship;
-
-	my_field[7][1] = cell::ship;
+	for (int i = 1; i < 4; i++) {
+		std::cout << i << std::endl;
+		for (int j = 0; j < 4 - i; j++) {
+			std::cout << j << std::endl;
+			do {
+				double rand = generate_random(1);
+				int x;
+				int y;
+				
+				if (rand <= 0.25) {
+					rotated = true;
+					x = 0;
+					y = game.true_borders(generate_random(game.board_size));
+				}
+				if (rand <= 0.5&&rand > 0.25) {
+					rotated = true;
+					x = 9;
+					y = game.true_borders(generate_random(game.board_size));
+				}
+				if (rand <= 0.75&&rand > 0.5) {
+					rotated = false;
+					y = 0;
+					x = game.true_borders(generate_random(game.board_size));
+				}
+				if (rand <= 1&&rand>0.75) {
+					rotated = false;
+					y = 9;
+					x = game.true_borders(generate_random(game.board_size ));
+				}
+				pos=sf::Vector2f(x*CELL_SIZE*game.x_scale + 1, CELL_SIZE + y * CELL_SIZE*game.y_scale+1);
+			} while (!game.place_ship(std::pair<int, int>(i + 1, 0), pos, my_field, rotated));
+		}
+	}
+	
+	for (int i = 0; i < 4; i++) {
+		
+		do {
+			int x;
+			int y;
+			rotated = true;
+			x = game.true_borders(1 + generate_random(9));
+			y = game.true_borders(1 + generate_random(9));
+			std::cout << "CHECK" << std::endl;
+			pos = sf::Vector2f(x*CELL_SIZE*game.x_scale + 1, CELL_SIZE + y * CELL_SIZE*game.y_scale+1);
+		} while (!game.place_ship(std::pair<int, int>(1, 0), pos, my_field, rotated));
+	}
 }
 
 Bot::Bot(bool am_i_first_player) :Participant(am_i_first_player)

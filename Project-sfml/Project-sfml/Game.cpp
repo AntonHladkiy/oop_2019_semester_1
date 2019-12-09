@@ -255,6 +255,7 @@ bool Game::place_ship(std::pair<int, int> pair, sf::Vector2f pos,cell** field,bo
 			field[i][j] = cell::ship;
 		}
 	}
+	std::cout << "check" << std::endl;
 
 }
 

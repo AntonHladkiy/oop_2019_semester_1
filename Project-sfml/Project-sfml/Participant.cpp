@@ -102,3 +102,68 @@ void Game::draw(sf::RenderWindow & window, Participant* p_1, Participant* p_2)
 		}
 	}
 }
+
+void Interface::open_menu(bool &is_first_bot, bool &is_second_bot, bool& _continue)
+{
+	sf::Sprite _sprite;
+	sf::Texture _texture;
+	sf::RenderWindow window(sf::VideoMode(448, 800), "Menu");
+	while (window.isOpen())
+	{
+		sf::Vector2i pixelPos = sf::Mouse::getPosition(window); //coord of mouse (in px)
+		sf::Vector2f pos = window.mapPixelToCoords(pixelPos); //coord of mous (transform)
+		window.clear();
+		print_message("Main Menu", sf::Vector2f(135, 0), window);
+		_texture.loadFromFile("../images/pvp2.png");
+		_texture.setSmooth(true);
+		_sprite.setTexture(_texture);
+		_sprite.setPosition(sf::Vector2f(0, 89));
+		_sprite.setScale(sf::Vector2f(float(447) / _texture.getSize().x, 1));
+		window.draw(_sprite);
+
+		_texture.loadFromFile("../images/pve2.png");
+		_sprite.setTexture(_texture);
+		_sprite.setPosition(sf::Vector2f(0, 280));
+		_sprite.setScale(sf::Vector2f(float(447) / _texture.getSize().x, 1));
+		window.draw(_sprite);
+
+
+		_texture.loadFromFile("../images/exit.png");
+		_sprite.setTexture(_texture);
+		_sprite.setScale(sf::Vector2f(float(447) / _texture.getSize().x, float(89) / _texture.getSize().y));
+		_sprite.setTextureRect(sf::IntRect(0, 0, 453, 89));
+		_sprite.setPosition(sf::Vector2f(0, 711));
+		window.draw(_sprite);
+
+
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+
+			if (event.type == sf::Event::Closed) {
+				window.close();
+				_continue = false;
+			}
+			if (event.type == sf::Event::MouseButtonPressed) {
+				if (event.key.code == sf::Mouse::Left) {
+					if (pos.y <= 178 && pos.y >= 89 && pos.x >= 0 && pos.x <= 447) {
+						is_first_bot = false;
+						is_second_bot = false;
+						window.close();
+					}
+					if (pos.y <= 369 && pos.y >= 280 && pos.x >= 0 && pos.x <= 447) {
+						is_first_bot = false;
+						is_second_bot = true;
+						window.close();
+					}
+					if (pos.y <= 800 && pos.y >= 711 && pos.x >= 0 && pos.x <= 447) {
+						window.close();
+						_continue = false;
+					}
+				}
+			}
+
+		}
+		window.display();
+	}
+}

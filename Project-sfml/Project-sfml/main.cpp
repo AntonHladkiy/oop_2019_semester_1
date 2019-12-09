@@ -4,15 +4,25 @@
 #include "Player.h"
 #include "Bot.h"
 #include "Participant.h"
+#include "Interface.h"
 
 int main()
 {
+	Interface interface;
 	bool restart = true;
+	bool is_first_bot;
+	bool is_second_bot;
+	interface.open_menu(is_first_bot,is_second_bot,restart);
+	Participant* pl_1 = new Player(true);
+	Participant* pl_2;
+	if (is_second_bot) {
+		pl_2 = new Bot(false);
+	}
+	else {
+		pl_2 = new Player(false);
+	}
 	while (restart) {
 		Game game;
-		Participant* pl_1 = new Player(true);
-		Participant* pl_2 = new Bot(false);
-		Interface interface;
 		sf::RenderWindow window(sf::VideoMode(1440, 800), "Sea Battle");
 		pl_1->make_field(game, window,restart);
 		pl_2->make_field(game, window,restart);

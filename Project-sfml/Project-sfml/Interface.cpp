@@ -2,6 +2,7 @@
 
 
 
+
 void Interface::print_message(std::string msg_text, sf::Vector2f pos, sf::RenderWindow &window)
 {
 	sf::Font font;
