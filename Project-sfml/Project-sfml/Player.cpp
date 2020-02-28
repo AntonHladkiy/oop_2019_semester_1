@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 
-//size of cell in pxls
+///size of cell in pxls
 #define CELL_SIZE 160
 
 bool Player::is_bot()

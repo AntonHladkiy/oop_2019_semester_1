@@ -318,3 +318,20 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/lab_2/timers.h
+/lab_2/timers.cpp
+/lab_2/sounds/Twin-bell-alarm-clock-sound.mp3
+/lab_2/sounds/Cuckoo-bird-sound.mp3
+/lab_2/resources.qrc
+/lab_2/mainwindow.ui
+/lab_2/mainwindow.h
+/lab_2/mainwindow.cpp
+/lab_2/main.cpp
+/lab_2/lab_2.pro
+/lab_2/images/stop.png
+/lab_2/images/play.png
+/build-lab_2-Desktop_Qt_5_13_2_MSVC2017_32bit-Debug/ui_mainwindow.h
+/build-lab_2-Desktop_Qt_5_13_2_MSVC2017_32bit-Debug/Makefile.Release
+/build-lab_2-Desktop_Qt_5_13_2_MSVC2017_32bit-Debug/Makefile.Debug
+/build-lab_2-Desktop_Qt_5_13_2_MSVC2017_32bit-Debug/Makefile
+/build-lab_2-Desktop_Qt_5_13_2_MSVC2017_32bit-Debug/.qmake.stash
