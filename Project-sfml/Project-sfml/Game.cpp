@@ -219,9 +219,11 @@ bool Game::place_ship(std::pair<int, int> pair, sf::Vector2f pos,cell** field,bo
 		pair_1 = pair;
 		pair = { 1,0 };
 	}
+
 	//check that we are on the field
 	if (pos.x < pair.second*CELL_SIZE*x_scale || pos.y < CELL_SIZE+CELL_SIZE*pair_1.second*y_scale || pos.x >  CELL_SIZE * x_scale * board_size-(pair.first-pair.second-1)*CELL_SIZE*x_scale || pos.y > CELL_SIZE + CELL_SIZE * y_scale * board_size - (pair_1.first - pair_1.second - 1)*CELL_SIZE*y_scale) return false;
 	//transform to index
+
 	size_t x = pos.x  / (CELL_SIZE * x_scale), y = (pos.y - CELL_SIZE) / (CELL_SIZE * y_scale);
 	for (int i = x - pair.second; i < x + (pair.first - pair.second); i++) {
 		for (int j = y - pair_1.second; j < y + (pair_1.first - pair_1.second); j++) {
@@ -255,7 +257,6 @@ bool Game::place_ship(std::pair<int, int> pair, sf::Vector2f pos,cell** field,bo
 			field[i][j] = cell::ship;
 		}
 	}
-	std::cout << "check" << std::endl;
 
 }
 
