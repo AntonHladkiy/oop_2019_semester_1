@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/&lt;qresource>">
+        <file>images/play.png</file>
+        <file>images/stop.png</file>
+        <file>sounds/Cuckoo-bird-sound.mp3</file>
+        <file>sounds/Twin-bell-alarm-clock-sound.mp3</file>
+    </qresource>
+</RCC>
