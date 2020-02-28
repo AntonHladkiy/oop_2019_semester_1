@@ -1,0 +1,187 @@
+\hypertarget{class_bot}{}\doxysection{Bot Class Reference}
+\label{class_bot}\index{Bot@{Bot}}
+
+
+This class contains implementation for bot.  
+
+
+
+
+{\ttfamily \#include $<$Bot.\+h$>$}
+
+Inheritance diagram for Bot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_bot}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_bot_aad0d460bdb1768790e37c78fd06e1bc5}{is\+\_\+bot}} () override
+\begin{DoxyCompactList}\small\item\em am i bot? \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_bot_a839d1ed4aa3ed2df37a59248973cbb9e}{make\+\_\+turn}} (\mbox{\hyperlink{class_game}{Game}} \&game, sf\+::\+Vector2f pos) override
+\begin{DoxyCompactList}\small\item\em trying to make\+\_\+turn \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bot_a8df5221675caf962a0ebb63d3052a5e3}{make\+\_\+field}} (\mbox{\hyperlink{class_game}{Game}} \&game, sf\+::\+Render\+Window \&window, bool \&restart) override
+\begin{DoxyCompactList}\small\item\em making your field(special algorithm for bot) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_bot_af4a27a66fdd7c93f3a03d86d7c661f18}{Bot}} (bool am\+\_\+i\+\_\+first\+\_\+player)
+\item 
+\mbox{\hyperlink{class_bot_ad3caff7fae06ebc75208758e11ee96ca}{Bot}} ()
+\item 
+\mbox{\hyperlink{class_bot_a4163b0f6c91f94cbeb3145eeda8cd361}{$\sim$\+Bot}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_bot_ad9ff991fd00051f6307cd01fff6d286e}{generate\+\_\+random}} (double second)
+\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{class_bot_a6e1ad65ace9ef6d2bf33b9477a96438a}{find\+\_\+next\+\_\+coord\+\_\+for\+\_\+attack}} (\mbox{\hyperlink{class_game}{Game}} \&game, \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$enemy\+\_\+field, const std\+::vector$<$ int $>$ \&enemy\+\_\+ships)
+\begin{DoxyCompactList}\small\item\em find most possible coordinates of ship \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bot_a7a7d8ab8c20341c8be454257f727ab0f}{modify}} (\mbox{\hyperlink{class_game}{Game}} \&game, \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$enemy\+\_\+field, int $\ast$$\ast$weight, int x, int y)
+\begin{DoxyCompactList}\small\item\em modify weight of cells if bot is in killing stance \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_bot_ab4556b167d268314884145d9254aa983}{prev\+\_\+x}}
+\begin{DoxyCompactList}\small\item\em remembered coordinates of hited ship \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_bot_a3af47cf64658481115352778ac23e433}{prev\+\_\+y}}
+\begin{DoxyCompactList}\small\item\em remembered coordinates of hited ship \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_bot_aa69316b8f7dbeebbfd2a4e5235f96a5a}{is\+\_\+killing}}
+\begin{DoxyCompactList}\small\item\em is bot in killing stance(trying to  finish already damaged ship) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+This class contains implementation for bot. 
+
+Here there are methods for bot to calculate optimal cell for shooting,also changing behaviour if there is hitted but not destoyed ship on enemy\`{}s board 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_bot_af4a27a66fdd7c93f3a03d86d7c661f18}\label{class_bot_af4a27a66fdd7c93f3a03d86d7c661f18}} 
+\index{Bot@{Bot}!Bot@{Bot}}
+\index{Bot@{Bot}!Bot@{Bot}}
+\doxysubsubsection{\texorpdfstring{Bot()}{Bot()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Bot\+::\+Bot (\begin{DoxyParamCaption}\item[{bool}]{am\+\_\+i\+\_\+first\+\_\+player }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_bot_ad3caff7fae06ebc75208758e11ee96ca}\label{class_bot_ad3caff7fae06ebc75208758e11ee96ca}} 
+\index{Bot@{Bot}!Bot@{Bot}}
+\index{Bot@{Bot}!Bot@{Bot}}
+\doxysubsubsection{\texorpdfstring{Bot()}{Bot()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Bot\+::\+Bot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_bot_a4163b0f6c91f94cbeb3145eeda8cd361}\label{class_bot_a4163b0f6c91f94cbeb3145eeda8cd361}} 
+\index{Bot@{Bot}!````~Bot@{$\sim$Bot}}
+\index{````~Bot@{$\sim$Bot}!Bot@{Bot}}
+\doxysubsubsection{\texorpdfstring{$\sim$Bot()}{~Bot()}}
+{\footnotesize\ttfamily Bot\+::$\sim$\+Bot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bot_a6e1ad65ace9ef6d2bf33b9477a96438a}\label{class_bot_a6e1ad65ace9ef6d2bf33b9477a96438a}} 
+\index{Bot@{Bot}!find\_next\_coord\_for\_attack@{find\_next\_coord\_for\_attack}}
+\index{find\_next\_coord\_for\_attack@{find\_next\_coord\_for\_attack}!Bot@{Bot}}
+\doxysubsubsection{\texorpdfstring{find\_next\_coord\_for\_attack()}{find\_next\_coord\_for\_attack()}}
+{\footnotesize\ttfamily std\+::pair$<$ int, int $>$ Bot\+::find\+\_\+next\+\_\+coord\+\_\+for\+\_\+attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game}{Game}} \&}]{game,  }\item[{\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$}]{enemy\+\_\+field,  }\item[{const std\+::vector$<$ int $>$ \&}]{enemy\+\_\+ships }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+find most possible coordinates of ship 
+
+\mbox{\Hypertarget{class_bot_ad9ff991fd00051f6307cd01fff6d286e}\label{class_bot_ad9ff991fd00051f6307cd01fff6d286e}} 
+\index{Bot@{Bot}!generate\_random@{generate\_random}}
+\index{generate\_random@{generate\_random}!Bot@{Bot}}
+\doxysubsubsection{\texorpdfstring{generate\_random()}{generate\_random()}}
+{\footnotesize\ttfamily double Bot\+::generate\+\_\+random (\begin{DoxyParamCaption}\item[{double}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bot_aad0d460bdb1768790e37c78fd06e1bc5}\label{class_bot_aad0d460bdb1768790e37c78fd06e1bc5}} 
+\index{Bot@{Bot}!is\_bot@{is\_bot}}
+\index{is\_bot@{is\_bot}!Bot@{Bot}}
+\doxysubsubsection{\texorpdfstring{is\_bot()}{is\_bot()}}
+{\footnotesize\ttfamily bool Bot\+::is\+\_\+bot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+am i bot? 
+
+
+
+Implements \mbox{\hyperlink{class_participant_a7c6006f9d0fdf48d7f52d1e2b9bc7409}{Participant}}.
+
+\mbox{\Hypertarget{class_bot_a8df5221675caf962a0ebb63d3052a5e3}\label{class_bot_a8df5221675caf962a0ebb63d3052a5e3}} 
+\index{Bot@{Bot}!make\_field@{make\_field}}
+\index{make\_field@{make\_field}!Bot@{Bot}}
+\doxysubsubsection{\texorpdfstring{make\_field()}{make\_field()}}
+{\footnotesize\ttfamily void Bot\+::make\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game}{Game}} \&}]{game,  }\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{bool \&}]{restart }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+making your field(special algorithm for bot) 
+
+
+
+Implements \mbox{\hyperlink{class_participant_a0e3976680421f2c66504e718905e00c0}{Participant}}.
+
+\mbox{\Hypertarget{class_bot_a839d1ed4aa3ed2df37a59248973cbb9e}\label{class_bot_a839d1ed4aa3ed2df37a59248973cbb9e}} 
+\index{Bot@{Bot}!make\_turn@{make\_turn}}
+\index{make\_turn@{make\_turn}!Bot@{Bot}}
+\doxysubsubsection{\texorpdfstring{make\_turn()}{make\_turn()}}
+{\footnotesize\ttfamily bool Bot\+::make\+\_\+turn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game}{Game}} \&}]{game,  }\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+trying to make\+\_\+turn 
+
+
+
+Implements \mbox{\hyperlink{class_participant_a20ae94919b323fe00816c64e783ba048}{Participant}}.
+
+\mbox{\Hypertarget{class_bot_a7a7d8ab8c20341c8be454257f727ab0f}\label{class_bot_a7a7d8ab8c20341c8be454257f727ab0f}} 
+\index{Bot@{Bot}!modify@{modify}}
+\index{modify@{modify}!Bot@{Bot}}
+\doxysubsubsection{\texorpdfstring{modify()}{modify()}}
+{\footnotesize\ttfamily void Bot\+::modify (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game}{Game}} \&}]{game,  }\item[{\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$}]{enemy\+\_\+field,  }\item[{int $\ast$$\ast$}]{weight,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+modify weight of cells if bot is in killing stance 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bot_aa69316b8f7dbeebbfd2a4e5235f96a5a}\label{class_bot_aa69316b8f7dbeebbfd2a4e5235f96a5a}} 
+\index{Bot@{Bot}!is\_killing@{is\_killing}}
+\index{is\_killing@{is\_killing}!Bot@{Bot}}
+\doxysubsubsection{\texorpdfstring{is\_killing}{is\_killing}}
+{\footnotesize\ttfamily bool Bot\+::is\+\_\+killing\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+is bot in killing stance(trying to  finish already damaged ship) 
+
+\mbox{\Hypertarget{class_bot_ab4556b167d268314884145d9254aa983}\label{class_bot_ab4556b167d268314884145d9254aa983}} 
+\index{Bot@{Bot}!prev\_x@{prev\_x}}
+\index{prev\_x@{prev\_x}!Bot@{Bot}}
+\doxysubsubsection{\texorpdfstring{prev\_x}{prev\_x}}
+{\footnotesize\ttfamily int Bot\+::prev\+\_\+x\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+remembered coordinates of hited ship 
+
+\mbox{\Hypertarget{class_bot_a3af47cf64658481115352778ac23e433}\label{class_bot_a3af47cf64658481115352778ac23e433}} 
+\index{Bot@{Bot}!prev\_y@{prev\_y}}
+\index{prev\_y@{prev\_y}!Bot@{Bot}}
+\doxysubsubsection{\texorpdfstring{prev\_y}{prev\_y}}
+{\footnotesize\ttfamily int Bot\+::prev\+\_\+y\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+remembered coordinates of hited ship 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Anton/\+Source/\+Repos/oop\+\_\+2019\+\_\+semester\+\_\+1/\+Project-\/sfml/\+Project-\/sfml/\mbox{\hyperlink{_bot_8h}{Bot.\+h}}\item 
+C\+:/\+Users/\+Anton/\+Source/\+Repos/oop\+\_\+2019\+\_\+semester\+\_\+1/\+Project-\/sfml/\+Project-\/sfml/\mbox{\hyperlink{_bot_8cpp}{Bot.\+cpp}}\end{DoxyCompactItemize}

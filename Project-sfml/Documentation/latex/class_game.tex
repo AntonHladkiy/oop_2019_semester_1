@@ -1,0 +1,371 @@
+\hypertarget{class_game}{}\doxysection{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+
+
+Class that draw boards, implement standart flow of the game.  
+
+
+
+
+{\ttfamily \#include $<$Game.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_adc44373aad2bba88fdc5af78f023438f}{draw}} (sf\+::\+Render\+Window \&window, \mbox{\hyperlink{class_participant}{Participant}} $\ast$p\+\_\+1, \mbox{\hyperlink{class_participant}{Participant}} $\ast$p\+\_\+2)
+\begin{DoxyCompactList}\small\item\em draw with sfml \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a78195c27b0a799d2f9c3e3c014a1cdd0}{draw\+\_\+starting\+\_\+screen}} (sf\+::\+Render\+Window \&window, std\+::vector$<$ int $>$ \&ships\+\_\+count, \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$\+\_\+field)
+\item 
+bool \mbox{\hyperlink{class_game_a1d16737b8d3fa80ea3b9e62b348a1e8c}{is\+\_\+pl\+\_\+1\+\_\+turn}} ()
+\begin{DoxyCompactList}\small\item\em is now turn of first player? \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game}} ()
+\item 
+bool \mbox{\hyperlink{class_game_aa68add3e9db2757f6358142d95b5a0e7}{are\+\_\+we\+\_\+still\+\_\+playing}} ()
+\item 
+bool \mbox{\hyperlink{class_game_afde9d788d64b975403fbc86ac74ddef2}{did\+\_\+first\+\_\+win}} ()
+\begin{DoxyCompactList}\small\item\em who won th game? \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{class_game_a40ed1be95f11c680ab74162b0ee91846}{calc\+\_\+ship\+\_\+coord}} (size\+\_\+t x, size\+\_\+t y, size\+\_\+t prev\+\_\+x, size\+\_\+t prev\+\_\+y, \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$field)
+\begin{DoxyCompactList}\small\item\em calculating size and index of pointed part \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a9aa719924278c454671ef45f99474624}{fill\+\_\+cells}} (size\+\_\+t x, size\+\_\+t y, \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$enemy\+\_\+field, size\+\_\+t start\+\_\+x, size\+\_\+t start\+\_\+y)
+\begin{DoxyCompactList}\small\item\em fill empty cells after destroying ship \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_a2e8d144b65eaf289e92b83dea785272d}{true\+\_\+borders}} (int index)
+\begin{DoxyCompactList}\small\item\em check for borders \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a8c4b61937b2f09aa542a661271f2add3}{move\+\_\+ship}} (sf\+::\+Render\+Window \&window, sf\+::\+Vector2f pos, sf\+::\+Vector2f delta, std\+::pair$<$ int, int $>$ pair, bool rotated)
+\begin{DoxyCompactList}\small\item\em move ship \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_a42b6056798bbb6fe864eeff813b7ce9b}{place\+\_\+ship}} (std\+::pair$<$ int, int $>$ pair, sf\+::\+Vector2f pos, \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$field, bool rotated)
+\begin{DoxyCompactList}\small\item\em try to place ship \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::pair$<$ int, int $>$, sf\+::\+Vector2f $>$ \mbox{\hyperlink{class_game_a704c065b119941c2c32206d01835131c}{param\+\_\+of\+\_\+new\+\_\+ship}} (sf\+::\+Render\+Window \&window, sf\+::\+Vector2f pos, \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$own\+\_\+field, bool \&is\+\_\+rotated, bool \&is\+\_\+ship\+\_\+from\+\_\+field, const std\+::vector$<$ int $>$ \&ships\+\_\+count)
+\begin{DoxyCompactList}\small\item\em check if we get ship with mouse click \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_a249bc73161ce51582c8bfa182d1dc28b}{check\+\_\+for\+\_\+destruction}} (size\+\_\+t x, size\+\_\+t y, \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$\+\_\+field, size\+\_\+t start\+\_\+x, size\+\_\+t start\+\_\+y, size\+\_\+t \&size\+\_\+of\+\_\+ship)
+\begin{DoxyCompactList}\small\item\em check ship for destruction \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a188baa94f580b655f2206d17b55f9651}{draw\+\_\+pl\+\_\+field}} (sf\+::\+Render\+Window \&window, \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$own\+\_\+field, \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$enemy\+\_\+field)
+\begin{DoxyCompactList}\small\item\em draw fields based on players turn \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_game_aa5bd2b67cdabcbc822c87b89e8bfedc8}{\+\_\+playing}}
+\begin{DoxyCompactList}\small\item\em are we still playing \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_game_acecd33d12d175780c81fff1f5783a84f}{board\+\_\+size}}
+\begin{DoxyCompactList}\small\item\em board size \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$ \mbox{\hyperlink{class_game_aeee9946d836a971f3d50cf0f3ef78cf1}{pl\+\_\+1\+\_\+field}}
+\begin{DoxyCompactList}\small\item\em field of first layer \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$ \mbox{\hyperlink{class_game_a1ce79b738d83cca097f111135307ed33}{pl\+\_\+2\+\_\+field}}
+\begin{DoxyCompactList}\small\item\em field of second layer \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_game_a9b768545d382f816da2266a190358d47}{pl\+\_\+1\+\_\+ships}}
+\begin{DoxyCompactList}\small\item\em ship of first player \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_game_a1dfb5b10070acf1fdb1839b3894c3150}{pl\+\_\+2\+\_\+ships}}
+\begin{DoxyCompactList}\small\item\em ship of second player \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_a7f05238c3294f9dafe6b5484b05971a3}{\+\_\+first\+\_\+pl\+\_\+turn}}
+\begin{DoxyCompactList}\small\item\em will it be first player turn now \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_a3f2e8f57cedec2dfdea35a3ab7dd42bd}{\+\_\+first\+\_\+pl\+\_\+won}}
+\begin{DoxyCompactList}\small\item\em did first player win \end{DoxyCompactList}\item 
+sf\+::\+Texture \mbox{\hyperlink{class_game_ab3ef76809b22757d39167e3dc6f1ef68}{\+\_\+texture}}
+\begin{DoxyCompactList}\small\item\em sfml stuff \end{DoxyCompactList}\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_game_a0f0259c7f8da5fc5a4f449c468249bf7}{\+\_\+sprite}}
+\begin{DoxyCompactList}\small\item\em sfml stuff \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_game_a14b6cda9ff6bb6d8505adfcd32eab19e}{x\+\_\+scale}}
+\begin{DoxyCompactList}\small\item\em scale\textquotesingle{}s param \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_game_ac241a8af7b58a21bf3963c77ab44bde0}{y\+\_\+scale}}
+\begin{DoxyCompactList}\small\item\em scale\textquotesingle{}s param \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_game_a7f4241aa9ecc051c75f779af132a52ed}{Player}}
+\item 
+class \mbox{\hyperlink{class_game_a1ee7e76afe0ca52b9d7dab8a171e8bfb}{Participant}}
+\item 
+class \mbox{\hyperlink{class_game_afb5d57ac6b56fe83e7894e3b686c3339}{Bot}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that draw boards, implement standart flow of the game. 
+
+Class contains methods for checking cells after hitting ship,destroying ship,checks if the game is still going and who wins. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_ad59df6562a58a614fda24622d3715b65}\label{class_game_ad59df6562a58a614fda24622d3715b65}} 
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Game\+::\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_aa68add3e9db2757f6358142d95b5a0e7}\label{class_game_aa68add3e9db2757f6358142d95b5a0e7}} 
+\index{Game@{Game}!are\_we\_still\_playing@{are\_we\_still\_playing}}
+\index{are\_we\_still\_playing@{are\_we\_still\_playing}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{are\_we\_still\_playing()}{are\_we\_still\_playing()}}
+{\footnotesize\ttfamily bool Game\+::are\+\_\+we\+\_\+still\+\_\+playing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_a40ed1be95f11c680ab74162b0ee91846}\label{class_game_a40ed1be95f11c680ab74162b0ee91846}} 
+\index{Game@{Game}!calc\_ship\_coord@{calc\_ship\_coord}}
+\index{calc\_ship\_coord@{calc\_ship\_coord}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{calc\_ship\_coord()}{calc\_ship\_coord()}}
+{\footnotesize\ttfamily std\+::pair$<$ int, int $>$ Game\+::calc\+\_\+ship\+\_\+coord (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{x,  }\item[{size\+\_\+t}]{y,  }\item[{size\+\_\+t}]{prev\+\_\+x,  }\item[{size\+\_\+t}]{prev\+\_\+y,  }\item[{\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$}]{field }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+calculating size and index of pointed part 
+
+\mbox{\Hypertarget{class_game_a249bc73161ce51582c8bfa182d1dc28b}\label{class_game_a249bc73161ce51582c8bfa182d1dc28b}} 
+\index{Game@{Game}!check\_for\_destruction@{check\_for\_destruction}}
+\index{check\_for\_destruction@{check\_for\_destruction}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{check\_for\_destruction()}{check\_for\_destruction()}}
+{\footnotesize\ttfamily bool Game\+::check\+\_\+for\+\_\+destruction (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{x,  }\item[{size\+\_\+t}]{y,  }\item[{\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$}]{\+\_\+field,  }\item[{size\+\_\+t}]{start\+\_\+x,  }\item[{size\+\_\+t}]{start\+\_\+y,  }\item[{size\+\_\+t \&}]{size\+\_\+of\+\_\+ship }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+check ship for destruction 
+
+\mbox{\Hypertarget{class_game_afde9d788d64b975403fbc86ac74ddef2}\label{class_game_afde9d788d64b975403fbc86ac74ddef2}} 
+\index{Game@{Game}!did\_first\_win@{did\_first\_win}}
+\index{did\_first\_win@{did\_first\_win}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{did\_first\_win()}{did\_first\_win()}}
+{\footnotesize\ttfamily bool Game\+::did\+\_\+first\+\_\+win (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+who won th game? 
+
+\mbox{\Hypertarget{class_game_adc44373aad2bba88fdc5af78f023438f}\label{class_game_adc44373aad2bba88fdc5af78f023438f}} 
+\index{Game@{Game}!draw@{draw}}
+\index{draw@{draw}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Game\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{\mbox{\hyperlink{class_participant}{Participant}} $\ast$}]{p\+\_\+1,  }\item[{\mbox{\hyperlink{class_participant}{Participant}} $\ast$}]{p\+\_\+2 }\end{DoxyParamCaption})}
+
+
+
+draw with sfml 
+
+\mbox{\Hypertarget{class_game_a188baa94f580b655f2206d17b55f9651}\label{class_game_a188baa94f580b655f2206d17b55f9651}} 
+\index{Game@{Game}!draw\_pl\_field@{draw\_pl\_field}}
+\index{draw\_pl\_field@{draw\_pl\_field}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{draw\_pl\_field()}{draw\_pl\_field()}}
+{\footnotesize\ttfamily void Game\+::draw\+\_\+pl\+\_\+field (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$}]{own\+\_\+field,  }\item[{\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$}]{enemy\+\_\+field }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+draw fields based on players turn 
+
+\mbox{\Hypertarget{class_game_a78195c27b0a799d2f9c3e3c014a1cdd0}\label{class_game_a78195c27b0a799d2f9c3e3c014a1cdd0}} 
+\index{Game@{Game}!draw\_starting\_screen@{draw\_starting\_screen}}
+\index{draw\_starting\_screen@{draw\_starting\_screen}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{draw\_starting\_screen()}{draw\_starting\_screen()}}
+{\footnotesize\ttfamily void Game\+::draw\+\_\+starting\+\_\+screen (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{std\+::vector$<$ int $>$ \&}]{ships\+\_\+count,  }\item[{\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$}]{\+\_\+field }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_a9aa719924278c454671ef45f99474624}\label{class_game_a9aa719924278c454671ef45f99474624}} 
+\index{Game@{Game}!fill\_cells@{fill\_cells}}
+\index{fill\_cells@{fill\_cells}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{fill\_cells()}{fill\_cells()}}
+{\footnotesize\ttfamily void Game\+::fill\+\_\+cells (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{x,  }\item[{size\+\_\+t}]{y,  }\item[{\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$}]{enemy\+\_\+field,  }\item[{size\+\_\+t}]{start\+\_\+x,  }\item[{size\+\_\+t}]{start\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+fill empty cells after destroying ship 
+
+\mbox{\Hypertarget{class_game_a1d16737b8d3fa80ea3b9e62b348a1e8c}\label{class_game_a1d16737b8d3fa80ea3b9e62b348a1e8c}} 
+\index{Game@{Game}!is\_pl\_1\_turn@{is\_pl\_1\_turn}}
+\index{is\_pl\_1\_turn@{is\_pl\_1\_turn}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{is\_pl\_1\_turn()}{is\_pl\_1\_turn()}}
+{\footnotesize\ttfamily bool Game\+::is\+\_\+pl\+\_\+1\+\_\+turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+is now turn of first player? 
+
+\mbox{\Hypertarget{class_game_a8c4b61937b2f09aa542a661271f2add3}\label{class_game_a8c4b61937b2f09aa542a661271f2add3}} 
+\index{Game@{Game}!move\_ship@{move\_ship}}
+\index{move\_ship@{move\_ship}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{move\_ship()}{move\_ship()}}
+{\footnotesize\ttfamily void Game\+::move\+\_\+ship (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{sf\+::\+Vector2f}]{pos,  }\item[{sf\+::\+Vector2f}]{delta,  }\item[{std\+::pair$<$ int, int $>$}]{pair,  }\item[{bool}]{rotated }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+move ship 
+
+\mbox{\Hypertarget{class_game_a704c065b119941c2c32206d01835131c}\label{class_game_a704c065b119941c2c32206d01835131c}} 
+\index{Game@{Game}!param\_of\_new\_ship@{param\_of\_new\_ship}}
+\index{param\_of\_new\_ship@{param\_of\_new\_ship}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{param\_of\_new\_ship()}{param\_of\_new\_ship()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::pair$<$ int, int $>$, sf\+::\+Vector2f $>$ Game\+::param\+\_\+of\+\_\+new\+\_\+ship (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{sf\+::\+Vector2f}]{pos,  }\item[{\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$}]{own\+\_\+field,  }\item[{bool \&}]{is\+\_\+rotated,  }\item[{bool \&}]{is\+\_\+ship\+\_\+from\+\_\+field,  }\item[{const std\+::vector$<$ int $>$ \&}]{ships\+\_\+count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+check if we get ship with mouse click 
+
+\mbox{\Hypertarget{class_game_a42b6056798bbb6fe864eeff813b7ce9b}\label{class_game_a42b6056798bbb6fe864eeff813b7ce9b}} 
+\index{Game@{Game}!place\_ship@{place\_ship}}
+\index{place\_ship@{place\_ship}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{place\_ship()}{place\_ship()}}
+{\footnotesize\ttfamily bool Game\+::place\+\_\+ship (\begin{DoxyParamCaption}\item[{std\+::pair$<$ int, int $>$}]{pair,  }\item[{sf\+::\+Vector2f}]{pos,  }\item[{\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$}]{field,  }\item[{bool}]{rotated }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+try to place ship 
+
+\mbox{\Hypertarget{class_game_a2e8d144b65eaf289e92b83dea785272d}\label{class_game_a2e8d144b65eaf289e92b83dea785272d}} 
+\index{Game@{Game}!true\_borders@{true\_borders}}
+\index{true\_borders@{true\_borders}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{true\_borders()}{true\_borders()}}
+{\footnotesize\ttfamily int Game\+::true\+\_\+borders (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+check for borders 
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_game_afb5d57ac6b56fe83e7894e3b686c3339}\label{class_game_afb5d57ac6b56fe83e7894e3b686c3339}} 
+\index{Game@{Game}!Bot@{Bot}}
+\index{Bot@{Bot}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Bot}{Bot}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_bot}{Bot}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_game_a1ee7e76afe0ca52b9d7dab8a171e8bfb}\label{class_game_a1ee7e76afe0ca52b9d7dab8a171e8bfb}} 
+\index{Game@{Game}!Participant@{Participant}}
+\index{Participant@{Participant}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Participant}{Participant}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_participant}{Participant}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_game_a7f4241aa9ecc051c75f779af132a52ed}\label{class_game_a7f4241aa9ecc051c75f779af132a52ed}} 
+\index{Game@{Game}!Player@{Player}}
+\index{Player@{Player}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Player}{Player}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_player}{Player}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_game_a7f05238c3294f9dafe6b5484b05971a3}\label{class_game_a7f05238c3294f9dafe6b5484b05971a3}} 
+\index{Game@{Game}!\_first\_pl\_turn@{\_first\_pl\_turn}}
+\index{\_first\_pl\_turn@{\_first\_pl\_turn}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\_first\_pl\_turn}{\_first\_pl\_turn}}
+{\footnotesize\ttfamily bool Game\+::\+\_\+first\+\_\+pl\+\_\+turn\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+will it be first player turn now 
+
+\mbox{\Hypertarget{class_game_a3f2e8f57cedec2dfdea35a3ab7dd42bd}\label{class_game_a3f2e8f57cedec2dfdea35a3ab7dd42bd}} 
+\index{Game@{Game}!\_first\_pl\_won@{\_first\_pl\_won}}
+\index{\_first\_pl\_won@{\_first\_pl\_won}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\_first\_pl\_won}{\_first\_pl\_won}}
+{\footnotesize\ttfamily bool Game\+::\+\_\+first\+\_\+pl\+\_\+won\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+did first player win 
+
+\mbox{\Hypertarget{class_game_aa5bd2b67cdabcbc822c87b89e8bfedc8}\label{class_game_aa5bd2b67cdabcbc822c87b89e8bfedc8}} 
+\index{Game@{Game}!\_playing@{\_playing}}
+\index{\_playing@{\_playing}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\_playing}{\_playing}}
+{\footnotesize\ttfamily bool Game\+::\+\_\+playing\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+are we still playing 
+
+\mbox{\Hypertarget{class_game_a0f0259c7f8da5fc5a4f449c468249bf7}\label{class_game_a0f0259c7f8da5fc5a4f449c468249bf7}} 
+\index{Game@{Game}!\_sprite@{\_sprite}}
+\index{\_sprite@{\_sprite}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\_sprite}{\_sprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite Game\+::\+\_\+sprite\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+sfml stuff 
+
+\mbox{\Hypertarget{class_game_ab3ef76809b22757d39167e3dc6f1ef68}\label{class_game_ab3ef76809b22757d39167e3dc6f1ef68}} 
+\index{Game@{Game}!\_texture@{\_texture}}
+\index{\_texture@{\_texture}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\_texture}{\_texture}}
+{\footnotesize\ttfamily sf\+::\+Texture Game\+::\+\_\+texture\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+sfml stuff 
+
+\mbox{\Hypertarget{class_game_acecd33d12d175780c81fff1f5783a84f}\label{class_game_acecd33d12d175780c81fff1f5783a84f}} 
+\index{Game@{Game}!board\_size@{board\_size}}
+\index{board\_size@{board\_size}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{board\_size}{board\_size}}
+{\footnotesize\ttfamily size\+\_\+t Game\+::board\+\_\+size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+board size 
+
+\mbox{\Hypertarget{class_game_aeee9946d836a971f3d50cf0f3ef78cf1}\label{class_game_aeee9946d836a971f3d50cf0f3ef78cf1}} 
+\index{Game@{Game}!pl\_1\_field@{pl\_1\_field}}
+\index{pl\_1\_field@{pl\_1\_field}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{pl\_1\_field}{pl\_1\_field}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}}$\ast$$\ast$ Game\+::pl\+\_\+1\+\_\+field\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+field of first layer 
+
+\mbox{\Hypertarget{class_game_a9b768545d382f816da2266a190358d47}\label{class_game_a9b768545d382f816da2266a190358d47}} 
+\index{Game@{Game}!pl\_1\_ships@{pl\_1\_ships}}
+\index{pl\_1\_ships@{pl\_1\_ships}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{pl\_1\_ships}{pl\_1\_ships}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Game\+::pl\+\_\+1\+\_\+ships\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ship of first player 
+
+\mbox{\Hypertarget{class_game_a1ce79b738d83cca097f111135307ed33}\label{class_game_a1ce79b738d83cca097f111135307ed33}} 
+\index{Game@{Game}!pl\_2\_field@{pl\_2\_field}}
+\index{pl\_2\_field@{pl\_2\_field}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{pl\_2\_field}{pl\_2\_field}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}}$\ast$$\ast$ Game\+::pl\+\_\+2\+\_\+field\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+field of second layer 
+
+\mbox{\Hypertarget{class_game_a1dfb5b10070acf1fdb1839b3894c3150}\label{class_game_a1dfb5b10070acf1fdb1839b3894c3150}} 
+\index{Game@{Game}!pl\_2\_ships@{pl\_2\_ships}}
+\index{pl\_2\_ships@{pl\_2\_ships}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{pl\_2\_ships}{pl\_2\_ships}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Game\+::pl\+\_\+2\+\_\+ships\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ship of second player 
+
+\mbox{\Hypertarget{class_game_a14b6cda9ff6bb6d8505adfcd32eab19e}\label{class_game_a14b6cda9ff6bb6d8505adfcd32eab19e}} 
+\index{Game@{Game}!x\_scale@{x\_scale}}
+\index{x\_scale@{x\_scale}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{x\_scale}{x\_scale}}
+{\footnotesize\ttfamily float Game\+::x\+\_\+scale\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+scale\textquotesingle{}s param 
+
+\mbox{\Hypertarget{class_game_ac241a8af7b58a21bf3963c77ab44bde0}\label{class_game_ac241a8af7b58a21bf3963c77ab44bde0}} 
+\index{Game@{Game}!y\_scale@{y\_scale}}
+\index{y\_scale@{y\_scale}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{y\_scale}{y\_scale}}
+{\footnotesize\ttfamily float Game\+::y\+\_\+scale\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+scale\textquotesingle{}s param 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Anton/\+Source/\+Repos/oop\+\_\+2019\+\_\+semester\+\_\+1/\+Project-\/sfml/\+Project-\/sfml/\mbox{\hyperlink{_game_8h}{Game.\+h}}\item 
+C\+:/\+Users/\+Anton/\+Source/\+Repos/oop\+\_\+2019\+\_\+semester\+\_\+1/\+Project-\/sfml/\+Project-\/sfml/\mbox{\hyperlink{_game_8cpp}{Game.\+cpp}}\item 
+C\+:/\+Users/\+Anton/\+Source/\+Repos/oop\+\_\+2019\+\_\+semester\+\_\+1/\+Project-\/sfml/\+Project-\/sfml/\mbox{\hyperlink{_participant_8cpp}{Participant.\+cpp}}\end{DoxyCompactItemize}

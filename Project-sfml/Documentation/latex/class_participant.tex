@@ -1,0 +1,158 @@
+\hypertarget{class_participant}{}\doxysection{Participant Class Reference}
+\label{class_participant}\index{Participant@{Participant}}
+
+
+This class contains virtual similar methods for \mbox{\hyperlink{class_player}{Player}} and \mbox{\hyperlink{class_bot}{Bot}}.  
+
+
+
+
+{\ttfamily \#include $<$Participant.\+h$>$}
+
+Inheritance diagram for Participant\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_participant}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_participant_a7c6006f9d0fdf48d7f52d1e2b9bc7409}{is\+\_\+bot}} ()=0
+\begin{DoxyCompactList}\small\item\em am i bot? \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_participant_a20ae94919b323fe00816c64e783ba048}{make\+\_\+turn}} (\mbox{\hyperlink{class_game}{Game}} \&game, sf\+::\+Vector2f pos)=0
+\begin{DoxyCompactList}\small\item\em trying to make\+\_\+turn \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_participant_a95e5cca3447373832a490a7c165316a2}{am\+\_\+i\+\_\+won}} (\mbox{\hyperlink{class_game}{Game}} \&game, bool \mbox{\hyperlink{class_participant_a871644e3021d43e269c2afa3bdcd6921}{am\+\_\+i\+\_\+first\+\_\+pl}})
+\begin{DoxyCompactList}\small\item\em am i won \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_participant_a0e3976680421f2c66504e718905e00c0}{make\+\_\+field}} (\mbox{\hyperlink{class_game}{Game}} \&game, sf\+::\+Render\+Window \&window, bool \&restart)=0
+\begin{DoxyCompactList}\small\item\em making your field \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_participant_a6aa7276944442b156930c9881f08a361}{Participant}} (bool \mbox{\hyperlink{class_participant_a871644e3021d43e269c2afa3bdcd6921}{am\+\_\+i\+\_\+first\+\_\+pl}})
+\begin{DoxyCompactList}\small\item\em constructor with determinated is player first \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_participant_ad0eb953c5992f199cf7a9f3df1d0beea}{Participant}} ()
+\item 
+\mbox{\hyperlink{class_participant_afb8c8a103cf97d1bacbd5e3621041522}{$\sim$\+Participant}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_participant_a7b6488961652d6fff2e7fc213cd39685}{check\+\_\+cell}} (\mbox{\hyperlink{class_game}{Game}} \&game, size\+\_\+t x, size\+\_\+t y, \mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$enemy\+\_\+field, bool \&is\+\_\+destroyed)
+\begin{DoxyCompactList}\small\item\em brief check if player hit ship \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_participant_a871644e3021d43e269c2afa3bdcd6921}{am\+\_\+i\+\_\+first\+\_\+pl}}
+\begin{DoxyCompactList}\small\item\em am i first player \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class contains virtual similar methods for \mbox{\hyperlink{class_player}{Player}} and \mbox{\hyperlink{class_bot}{Bot}}. 
+
+This class is a generalization of both bot and real player type of players 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_participant_a6aa7276944442b156930c9881f08a361}\label{class_participant_a6aa7276944442b156930c9881f08a361}} 
+\index{Participant@{Participant}!Participant@{Participant}}
+\index{Participant@{Participant}!Participant@{Participant}}
+\doxysubsubsection{\texorpdfstring{Participant()}{Participant()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Participant\+::\+Participant (\begin{DoxyParamCaption}\item[{bool}]{am\+\_\+i\+\_\+first\+\_\+pl }\end{DoxyParamCaption})}
+
+
+
+constructor with determinated is player first 
+
+\mbox{\Hypertarget{class_participant_ad0eb953c5992f199cf7a9f3df1d0beea}\label{class_participant_ad0eb953c5992f199cf7a9f3df1d0beea}} 
+\index{Participant@{Participant}!Participant@{Participant}}
+\index{Participant@{Participant}!Participant@{Participant}}
+\doxysubsubsection{\texorpdfstring{Participant()}{Participant()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Participant\+::\+Participant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_participant_afb8c8a103cf97d1bacbd5e3621041522}\label{class_participant_afb8c8a103cf97d1bacbd5e3621041522}} 
+\index{Participant@{Participant}!````~Participant@{$\sim$Participant}}
+\index{````~Participant@{$\sim$Participant}!Participant@{Participant}}
+\doxysubsubsection{\texorpdfstring{$\sim$Participant()}{~Participant()}}
+{\footnotesize\ttfamily Participant\+::$\sim$\+Participant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_participant_a95e5cca3447373832a490a7c165316a2}\label{class_participant_a95e5cca3447373832a490a7c165316a2}} 
+\index{Participant@{Participant}!am\_i\_won@{am\_i\_won}}
+\index{am\_i\_won@{am\_i\_won}!Participant@{Participant}}
+\doxysubsubsection{\texorpdfstring{am\_i\_won()}{am\_i\_won()}}
+{\footnotesize\ttfamily bool Participant\+::am\+\_\+i\+\_\+won (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game}{Game}} \&}]{game,  }\item[{bool}]{am\+\_\+i\+\_\+first\+\_\+pl }\end{DoxyParamCaption})}
+
+
+
+am i won 
+
+\mbox{\Hypertarget{class_participant_a7b6488961652d6fff2e7fc213cd39685}\label{class_participant_a7b6488961652d6fff2e7fc213cd39685}} 
+\index{Participant@{Participant}!check\_cell@{check\_cell}}
+\index{check\_cell@{check\_cell}!Participant@{Participant}}
+\doxysubsubsection{\texorpdfstring{check\_cell()}{check\_cell()}}
+{\footnotesize\ttfamily bool Participant\+::check\+\_\+cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game}{Game}} \&}]{game,  }\item[{size\+\_\+t}]{x,  }\item[{size\+\_\+t}]{y,  }\item[{\mbox{\hyperlink{_game_8h_ab314bda3028efc7ff5f435a6c94dd91d}{cell}} $\ast$$\ast$}]{enemy\+\_\+field,  }\item[{bool \&}]{is\+\_\+destroyed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+brief check if player hit ship 
+
+\mbox{\Hypertarget{class_participant_a7c6006f9d0fdf48d7f52d1e2b9bc7409}\label{class_participant_a7c6006f9d0fdf48d7f52d1e2b9bc7409}} 
+\index{Participant@{Participant}!is\_bot@{is\_bot}}
+\index{is\_bot@{is\_bot}!Participant@{Participant}}
+\doxysubsubsection{\texorpdfstring{is\_bot()}{is\_bot()}}
+{\footnotesize\ttfamily virtual bool Participant\+::is\+\_\+bot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+am i bot? 
+
+
+
+Implemented in \mbox{\hyperlink{class_bot_aad0d460bdb1768790e37c78fd06e1bc5}{Bot}}, and \mbox{\hyperlink{class_player_af161406956d8f0c8a605223ec1a7f5ac}{Player}}.
+
+\mbox{\Hypertarget{class_participant_a0e3976680421f2c66504e718905e00c0}\label{class_participant_a0e3976680421f2c66504e718905e00c0}} 
+\index{Participant@{Participant}!make\_field@{make\_field}}
+\index{make\_field@{make\_field}!Participant@{Participant}}
+\doxysubsubsection{\texorpdfstring{make\_field()}{make\_field()}}
+{\footnotesize\ttfamily virtual void Participant\+::make\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game}{Game}} \&}]{game,  }\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{bool \&}]{restart }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+making your field 
+
+
+
+Implemented in \mbox{\hyperlink{class_bot_a8df5221675caf962a0ebb63d3052a5e3}{Bot}}, and \mbox{\hyperlink{class_player_a92fa053726edf544d407a93243b7a3b4}{Player}}.
+
+\mbox{\Hypertarget{class_participant_a20ae94919b323fe00816c64e783ba048}\label{class_participant_a20ae94919b323fe00816c64e783ba048}} 
+\index{Participant@{Participant}!make\_turn@{make\_turn}}
+\index{make\_turn@{make\_turn}!Participant@{Participant}}
+\doxysubsubsection{\texorpdfstring{make\_turn()}{make\_turn()}}
+{\footnotesize\ttfamily virtual bool Participant\+::make\+\_\+turn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game}{Game}} \&}]{game,  }\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+trying to make\+\_\+turn 
+
+
+
+Implemented in \mbox{\hyperlink{class_bot_a839d1ed4aa3ed2df37a59248973cbb9e}{Bot}}, and \mbox{\hyperlink{class_player_ab4a714fd50f302d2c411dfb51d157879}{Player}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_participant_a871644e3021d43e269c2afa3bdcd6921}\label{class_participant_a871644e3021d43e269c2afa3bdcd6921}} 
+\index{Participant@{Participant}!am\_i\_first\_pl@{am\_i\_first\_pl}}
+\index{am\_i\_first\_pl@{am\_i\_first\_pl}!Participant@{Participant}}
+\doxysubsubsection{\texorpdfstring{am\_i\_first\_pl}{am\_i\_first\_pl}}
+{\footnotesize\ttfamily bool Participant\+::am\+\_\+i\+\_\+first\+\_\+pl\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+am i first player 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Anton/\+Source/\+Repos/oop\+\_\+2019\+\_\+semester\+\_\+1/\+Project-\/sfml/\+Project-\/sfml/\mbox{\hyperlink{_participant_8h}{Participant.\+h}}\item 
+C\+:/\+Users/\+Anton/\+Source/\+Repos/oop\+\_\+2019\+\_\+semester\+\_\+1/\+Project-\/sfml/\+Project-\/sfml/\mbox{\hyperlink{_participant_8cpp}{Participant.\+cpp}}\end{DoxyCompactItemize}

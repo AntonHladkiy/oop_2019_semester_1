@@ -1,0 +1,110 @@
+\hypertarget{class_player}{}\doxysection{Player Class Reference}
+\label{class_player}\index{Player@{Player}}
+
+
+This class contains implementation for player.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+Inheritance diagram for Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_player}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_player_af161406956d8f0c8a605223ec1a7f5ac}{is\+\_\+bot}} () override
+\begin{DoxyCompactList}\small\item\em am i bot? \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}} ()
+\item 
+bool \mbox{\hyperlink{class_player_ab4a714fd50f302d2c411dfb51d157879}{make\+\_\+turn}} (\mbox{\hyperlink{class_game}{Game}} \&game, sf\+::\+Vector2f pos) override
+\begin{DoxyCompactList}\small\item\em trying to make\+\_\+turn \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a92fa053726edf544d407a93243b7a3b4}{make\+\_\+field}} (\mbox{\hyperlink{class_game}{Game}} \&game, sf\+::\+Render\+Window \&window, bool \&restart) override
+\begin{DoxyCompactList}\small\item\em making your field \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player_a8da4b4c968b6f579313c7db9f0f5b8e1}{Player}} (bool \+\_\+am\+\_\+i\+\_\+first\+\_\+palyer)
+\item 
+\mbox{\hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\+Player}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+This class contains implementation for player. 
+
+In this class we have ovverided function of \mbox{\hyperlink{class_participant}{Participant}} class that implement actions of real player 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}\label{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_player_a8da4b4c968b6f579313c7db9f0f5b8e1}\label{class_player_a8da4b4c968b6f579313c7db9f0f5b8e1}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{bool}]{\+\_\+am\+\_\+i\+\_\+first\+\_\+palyer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_player_a749d2c00e1fe0f5c2746f7505a58c062}\label{class_player_a749d2c00e1fe0f5c2746f7505a58c062}} 
+\index{Player@{Player}!````~Player@{$\sim$Player}}
+\index{````~Player@{$\sim$Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{$\sim$Player()}{~Player()}}
+{\footnotesize\ttfamily Player\+::$\sim$\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_player_af161406956d8f0c8a605223ec1a7f5ac}\label{class_player_af161406956d8f0c8a605223ec1a7f5ac}} 
+\index{Player@{Player}!is\_bot@{is\_bot}}
+\index{is\_bot@{is\_bot}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{is\_bot()}{is\_bot()}}
+{\footnotesize\ttfamily bool Player\+::is\+\_\+bot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+am i bot? 
+
+
+
+Implements \mbox{\hyperlink{class_participant_a7c6006f9d0fdf48d7f52d1e2b9bc7409}{Participant}}.
+
+\mbox{\Hypertarget{class_player_a92fa053726edf544d407a93243b7a3b4}\label{class_player_a92fa053726edf544d407a93243b7a3b4}} 
+\index{Player@{Player}!make\_field@{make\_field}}
+\index{make\_field@{make\_field}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{make\_field()}{make\_field()}}
+{\footnotesize\ttfamily void Player\+::make\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game}{Game}} \&}]{game,  }\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{bool \&}]{restart }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+making your field 
+
+
+
+Implements \mbox{\hyperlink{class_participant_a0e3976680421f2c66504e718905e00c0}{Participant}}.
+
+\mbox{\Hypertarget{class_player_ab4a714fd50f302d2c411dfb51d157879}\label{class_player_ab4a714fd50f302d2c411dfb51d157879}} 
+\index{Player@{Player}!make\_turn@{make\_turn}}
+\index{make\_turn@{make\_turn}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{make\_turn()}{make\_turn()}}
+{\footnotesize\ttfamily bool Player\+::make\+\_\+turn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game}{Game}} \&}]{game,  }\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+trying to make\+\_\+turn 
+
+
+
+Implements \mbox{\hyperlink{class_participant_a20ae94919b323fe00816c64e783ba048}{Participant}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Anton/\+Source/\+Repos/oop\+\_\+2019\+\_\+semester\+\_\+1/\+Project-\/sfml/\+Project-\/sfml/\mbox{\hyperlink{_player_8h}{Player.\+h}}\item 
+C\+:/\+Users/\+Anton/\+Source/\+Repos/oop\+\_\+2019\+\_\+semester\+\_\+1/\+Project-\/sfml/\+Project-\/sfml/\mbox{\hyperlink{_player_8cpp}{Player.\+cpp}}\end{DoxyCompactItemize}
