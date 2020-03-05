@@ -34,6 +34,8 @@ public:
 	bool are_we_still_playing();
 	///who won th game?
 	bool did_first_win();
+	//
+	//
 	///calculating size and index of pointed part
 	std::pair<int, int> calc_ship_coord(size_t x, size_t y, size_t prev_x, size_t prev_y, cell** field);
 	///check ship for destruction
